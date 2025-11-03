@@ -1,0 +1,8 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <description>Shared types (models and utilities) for CoreOperation</description>
+    <tags>models modelobject utilities CoreOperation</tags>
+    <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.CoreOperation/main/OBeautifulCode.CoreOperation/nuget-icon.png</iconUrl>
+  </metadata>
+</package>

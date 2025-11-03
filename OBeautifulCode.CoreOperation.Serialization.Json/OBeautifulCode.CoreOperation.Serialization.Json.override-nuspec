@@ -1,0 +1,8 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <description>JSON Serialization Configuration for types in OBeautifulCode.CoreOperation</description>
+    <tags>json serialization configuration CoreOperation</tags>
+    <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.CoreOperation/main/OBeautifulCode.CoreOperation.Serialization.Json/nuget-icon.png</iconUrl>
+  </metadata>
+</package>
