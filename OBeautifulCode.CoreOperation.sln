@@ -11,6 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OBeautifulCode.CoreOperatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OBeautifulCode.CoreOperation.Serialization.Json", "OBeautifulCode.CoreOperation.Serialization.Json\OBeautifulCode.CoreOperation.Serialization.Json.csproj", "{5E9CD09B-EA06-40D2-84F0-267D9F850CBD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3513E4B8-984D-4F9C-A623-143F66D0877A}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		OBeautifulCode.CoreOperation.sln.DotSettings = OBeautifulCode.CoreOperation.sln.DotSettings
+		README.md = README.md
+		RepoConfig.state = RepoConfig.state
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

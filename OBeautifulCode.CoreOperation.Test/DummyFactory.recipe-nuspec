@@ -1,14 +1,14 @@
-﻿<?xml version="1.0"?>
-<package >
+<?xml version="1.0"?>
+<package>
   <metadata>
     <id>OBeautifulCode.CoreOperation.Recipes.DummyFactory</id>
     <description>A Dummy Factory for types in OBeautifulCode.CoreOperation</description>
     <tags>dummyfactory dummy factory fakeiteasy autofixture snippet codeinclude utility shared recipe CoreOperation</tags>
     <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.CoreOperation/main/OBeautifulCode.CoreOperation.Test/nuget-icon.png</iconUrl>
     <dependencies>
-        <dependency id="OBeautifulCode.CoreOperation" version="$version$" />
-        <dependency id="OBeautifulCode.AutoFakeItEasy" version ="1.0.126" />
-        <dependency id="OBeautifulCode.CodeAnalysis.Recipes.SuppressBecause" version="1.0.6" />
+      <dependency id="OBeautifulCode.CoreOperation" version="$version$" />
+      <dependency id="OBeautifulCode.AutoFakeItEasy" version="1.0.141" />
+      <dependency id="OBeautifulCode.CodeAnalysis.Recipes.SuppressBecause" version="1.0.19" />
     </dependencies>
   </metadata>
   <files>
