@@ -205,6 +205,9 @@
     <Compile Include=".recipes\OBeautifulCode.Type\TypeDummyFactory.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\TypeDummyFactory.designer.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\TypeExtensions.cs" />
+    <Compile Include="Logic\CoreCompositeOperationProtocolsTest.cs" />
+    <Compile Include="Logic\CoreCompositeOperationProtocolsTTest.cs" />
+    <Compile Include="Logic\OpTest.cs" />
     <Compile Include="Models\Classes\Bool\AndAlsoOpTest.cs" />
     <Compile Include="Models\Classes\Bool\AndAlsoOpTest.designer.cs">
       <DependentUpon>AndAlsoOpTest.cs</DependentUpon>

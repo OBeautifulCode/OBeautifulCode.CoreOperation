@@ -67,6 +67,9 @@
     <Compile Include=".recipes\OBeautifulCode.Type\ToStringReadableOptions.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\ToStringXmlDocOptions.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\TypeExtensions.cs" />
+    <Compile Include="Logic\CoreCompositeOperationProtocols.cs" />
+    <Compile Include="Logic\CoreCompositeOperationProtocols{T}.cs" />
+    <Compile Include="Logic\Op.cs" />
     <Compile Include="Models\Classes\Bool\AndAlsoOp.cs" />
     <Compile Include="Models\Classes\Bool\AndAlsoOp.designer.cs">
       <DependentUpon>AndAlsoOp.cs</DependentUpon>
