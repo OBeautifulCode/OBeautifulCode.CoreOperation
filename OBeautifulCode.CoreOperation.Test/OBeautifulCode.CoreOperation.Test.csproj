@@ -202,7 +202,60 @@
     <Compile Include=".recipes\OBeautifulCode.Type\ArrayKind.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\ToStringReadableOptions.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\ToStringXmlDocOptions.cs" />
+    <Compile Include=".recipes\OBeautifulCode.Type\TypeDummyFactory.cs" />
+    <Compile Include=".recipes\OBeautifulCode.Type\TypeDummyFactory.designer.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\TypeExtensions.cs" />
+    <Compile Include="Models\Classes\Bool\AndAlsoOpTest.cs" />
+    <Compile Include="Models\Classes\Bool\AndAlsoOpTest.designer.cs">
+      <DependentUpon>AndAlsoOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Bool\CompareOpTest.cs" />
+    <Compile Include="Models\Classes\Bool\CompareOpTest.designer.cs">
+      <DependentUpon>CompareOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoreOperationDummyFactoryTest.designer.cs">
+      <DependentUpon>CoreOperationDummyFactoryTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Decimal\DivideOpTest.cs" />
+    <Compile Include="Models\Classes\Decimal\DivideOpTest.designer.cs">
+      <DependentUpon>DivideOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Integer\GetNumberOfSignificantDigitsOpTest.cs" />
+    <Compile Include="Models\Classes\Integer\GetNumberOfSignificantDigitsOpTest.designer.cs">
+      <DependentUpon>GetNumberOfSignificantDigitsOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Conditional\IfThenElseOp{TResult}Test.cs" />
+    <Compile Include="Models\Classes\Conditional\IfThenElseOp{TResult}Test.designer.cs">
+      <DependentUpon>IfThenElseOp{TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Bool\IsEqualToOp{TStatement}Test.cs" />
+    <Compile Include="Models\Classes\Bool\IsEqualToOp{TStatement}Test.designer.cs">
+      <DependentUpon>IsEqualToOp{TStatement}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\MultiStatementOpBase{TStatement,TResult}Test.cs" />
+    <Compile Include="Models\Classes\MultiStatementOpBase{TStatement,TResult}Test.designer.cs">
+      <DependentUpon>MultiStatementOpBase{TStatement,TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Bool\NotOpTest.cs" />
+    <Compile Include="Models\Classes\Bool\NotOpTest.designer.cs">
+      <DependentUpon>NotOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Null\NullMultiStatementOp{TStatement,TResult}Test.cs" />
+    <Compile Include="Models\Classes\Null\NullMultiStatementOp{TStatement,TResult}Test.designer.cs">
+      <DependentUpon>NullMultiStatementOp{TStatement,TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Null\NullSingleStatementOp{TStatement,TResult}Test.cs" />
+    <Compile Include="Models\Classes\Null\NullSingleStatementOp{TStatement,TResult}Test.designer.cs">
+      <DependentUpon>NullSingleStatementOp{TStatement,TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Null\NullTwoStatementOp{TStatement,TResult}Test.cs" />
+    <Compile Include="Models\Classes\Null\NullTwoStatementOp{TStatement,TResult}Test.designer.cs">
+      <DependentUpon>NullTwoStatementOp{TStatement,TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Bool\OrElseOpTest.cs" />
+    <Compile Include="Models\Classes\Bool\OrElseOpTest.designer.cs">
+      <DependentUpon>OrElseOpTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="CoreOperationDummyFactory.cs" />
@@ -211,6 +264,18 @@
     </Compile>
     <Compile Include="CoreOperationDummyFactoryTest.cs" />
     <AdditionalFiles Include=".analyzers\stylecop.json" />
+    <Compile Include="Models\Classes\SingleStatementOpBase{TStatement,TResult}Test.cs" />
+    <Compile Include="Models\Classes\SingleStatementOpBase{TStatement,TResult}Test.designer.cs">
+      <DependentUpon>SingleStatementOpBase{TStatement,TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Decimal\SumOpTest.cs" />
+    <Compile Include="Models\Classes\Decimal\SumOpTest.designer.cs">
+      <DependentUpon>SumOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\TwoStatementOpBase{TStatement,TResult}Test.cs" />
+    <Compile Include="Models\Classes\TwoStatementOpBase{TStatement,TResult}Test.designer.cs">
+      <DependentUpon>TwoStatementOpBase{TStatement,TResult}Test.cs</DependentUpon>
+    </Compile>
     <None Include=".analyzers\test.ruleset" />
     <None Include="DummyFactory.recipe-nuspec" />
     <Compile Include="Properties\ProjectInfo.cs" />
@@ -235,7 +300,12 @@
       <Project>{5E9CD09B-EA06-40D2-84F0-267D9F850CBD}</Project>
       <Name>OBeautifulCode.CoreOperation.Serialization.Json</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OBeautifulCode.CoreOperation\OBeautifulCode.CoreOperation.csproj">
+      <Project>{eb90f51e-4f65-424a-a781-cbfd89e08272}</Project>
+      <Name>OBeautifulCode.CoreOperation</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\OBeautifulCode.Build.Analyzers.1.1.141\build\OBeautifulCode.Build.Analyzers.targets" Condition="Exists('..\packages\OBeautifulCode.Build.Analyzers.1.1.141\build\OBeautifulCode.Build.Analyzers.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

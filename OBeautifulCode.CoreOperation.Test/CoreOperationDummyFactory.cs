@@ -9,11 +9,14 @@
 
 namespace OBeautifulCode.CoreOperation.Test
 {
+    using System.Linq;
     using global::System;
 
     using FakeItEasy;
 
     using OBeautifulCode.AutoFakeItEasy;
+    using OBeautifulCode.Math.Recipes;
+    using OBeautifulCode.Type;
 
     /// <summary>
     /// A Dummy Factory for types in <see cref="OBeautifulCode.CoreOperation"/>.
@@ -29,7 +32,55 @@ namespace OBeautifulCode.CoreOperation.Test
     {
         public CoreOperationDummyFactory()
         {
-            /* Add any overriding or custom registrations here. */
+            AutoFixtureBackedDummyFactory.ConstrainDummyToExclude(CompareOperator.Unknown);
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(() =>
+            {
+                var result = new AndAlsoOp
+                {
+                    Statements = Some.ReadOnlyDummies<IReturningOperation<bool>>().Whose(_ => _.Count >= 2).ToList(),
+                };
+
+                return result;
+            });
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(() =>
+            {
+                var result = new OrElseOp
+                {
+                    Statements = Some.ReadOnlyDummies<IReturningOperation<bool>>().Whose(_ => _.Count >= 2).ToList(),
+                };
+
+                return result;
+            });
+
+            RegisterReturningOperation<bool>();
+            RegisterReturningOperation<decimal>();
+            RegisterReturningOperation<string>();
+            RegisterReturningOperation<CompareOperator>();
+        }
+
+        private static void RegisterReturningOperation<T>()
+        {
+            AutoFixtureBackedDummyFactory.AddDummyCreator(
+                () =>
+                {
+                    var availableTypes = new[]
+                    {
+                        typeof(ThrowOpExecutionAbortedExceptionOp<T>),
+                        typeof(NullReturningOp<T>)
+                    };
+
+                    var randomIndex = ThreadSafeRandom.Next(0, availableTypes.Length);
+
+                    var randomType = availableTypes[randomIndex];
+
+                    var result = (ReturningOperationBase<T>)AD.ummy(randomType);
+
+                    return result;
+                });
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator<IReturningOperation<T>>(A.Dummy<ReturningOperationBase<T>>);
         }
     }
 }
