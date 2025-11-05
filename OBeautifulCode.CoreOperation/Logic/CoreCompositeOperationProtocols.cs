@@ -50,6 +50,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             foreach (var statement in operation.Statements)
             {
                 if (!this.protocolFactory.GetProtocolAndExecuteViaReflection<bool>(statement))
@@ -69,6 +71,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             foreach (var statement in operation.Statements)
             {
@@ -90,6 +94,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             foreach (var statement in operation.Statements)
             {
                 if (this.protocolFactory.GetProtocolAndExecuteViaReflection<bool>(statement))
@@ -109,6 +115,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             foreach (var statement in operation.Statements)
             {
@@ -130,6 +138,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             var result = !this.protocolFactory.GetProtocolAndExecuteViaReflection<bool>(operation.Statement);
 
             return result;
@@ -143,6 +153,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             var result = !(await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<bool>(operation.Statement));
 
@@ -158,6 +170,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             var result = operation.Statements.Sum(_ => this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(_));
 
             return result;
@@ -172,16 +186,13 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
-            if (operation == null)
-            {
-                throw new ArgumentNullException(nameof(operation));
-            }
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             var result = 0m;
 
             foreach (var statement in operation.Statements)
             {
-                result = result + await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(statement);
+                result += await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(statement);
             }
 
             return result;
@@ -195,6 +206,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             var left = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.Left);
 
@@ -216,6 +229,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             var left = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.Left);
 
             var @operator = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<CompareOperator>(operation.Operator);
@@ -236,6 +251,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             var value = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.Statement);
 
             var result = GetNumberOfSignificantDigit(value);
@@ -252,6 +269,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             var value = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.Statement);
 
             var result = GetNumberOfSignificantDigit(value);
@@ -267,6 +286,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             var numerator = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.Numerator);
 
@@ -285,6 +306,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             var numerator = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.Numerator);
 

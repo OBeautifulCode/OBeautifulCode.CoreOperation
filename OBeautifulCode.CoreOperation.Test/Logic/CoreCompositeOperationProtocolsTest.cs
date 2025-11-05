@@ -47,6 +47,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static void Execute_AndAlsoOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new AndAlsoOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static void Execute_AndAlsoOp___Should_stop_executing_Statements_and_return_false___When_executing_Statements_in_order_and_one_returns_false()
         {
             // Arrange
@@ -87,6 +100,19 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_AndAlsoOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new AndAlsoOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
         }
 
         [Fact]
@@ -133,6 +159,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static void Execute_OrElseOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new OrElseOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static void Execute_OrElseOp___Should_stop_executing_Statements_and_return_true___When_executing_Statements_in_order_and_one_returns_true()
         {
             // Arrange
@@ -173,6 +212,19 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_OrElseOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new OrElseOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
         }
 
         [Fact]
@@ -219,6 +271,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static void Execute_NotOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new NotOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static void Execute_NotOp___Should_return_true___When_the_result_of_executing_Statement_is_false()
         {
             // Arrange
@@ -259,6 +324,19 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_NotOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new NotOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
         }
 
         [Fact]
@@ -305,6 +383,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static void Execute_SumOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new SumOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static void Execute_SumOp___Should_return_sum_of_the_results_of_executing_Statements___When_called()
         {
             // Arrange
@@ -333,6 +424,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static async Task ExecuteAsync_SumOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new SumOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static async Task ExecuteAsync_SumOp___Should_return_sum_of_the_results_of_executing_Statements___When_called()
         {
             // Arrange
@@ -358,6 +462,19 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static void Execute_CompareOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new CompareOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
         }
 
         [Fact]
@@ -554,6 +671,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static async Task ExecuteAsync_CompareOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new CompareOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static async Task ExecuteAsync_CompareOp___Should_return_false___When_executing_CompareOperator_returns_GreaterThan_and_the_result_of_executing_Left_is_less_than_the_result_of_executing_Right()
         {
             // Arrange
@@ -747,6 +877,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static void Execute_GetNumberOfSignificantDigitsOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new GetNumberOfSignificantDigitsOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static void Execute_GetNumberOfSignificantDigitsOp___Should_return_number_of_significant_digits_of_the_result_of_executing_Statement___When_called()
         {
             // Arrange
@@ -775,6 +918,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static async Task ExecuteAsync_GetNumberOfSignificantDigitsOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new GetNumberOfSignificantDigitsOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static async Task ExecuteAsync_GetNumberOfSignificantDigitsOp___Should_return_number_of_significant_digits_of_the_result_of_executing_Statement___When_called()
         {
             // Arrange
@@ -800,6 +956,19 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static void Execute_DivideOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new DivideOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
         }
 
         [Fact]
@@ -843,6 +1012,19 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_DivideOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new DivideOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
         }
 
         [Fact]

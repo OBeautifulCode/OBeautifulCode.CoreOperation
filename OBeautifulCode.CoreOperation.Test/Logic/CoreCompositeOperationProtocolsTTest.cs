@@ -47,6 +47,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static void Execute_IfThenElseOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols<int>(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new IfThenElseOp<int>()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static void Execute_IfThenElseOp___Should_execute_Statement_and_return_result___When_executing_Condition_returns_true()
         {
             // Arrange
@@ -87,6 +100,19 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_IfThenElseOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols<int>(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new IfThenElseOp<int>()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
         }
 
         [Fact]
@@ -133,6 +159,19 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static void Execute_IsEqualToOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols<int>(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new IsEqualToOp<int>()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
         public static void Execute_IsEqualToOp___Should_return_false___When_the_result_of_executing_Statement1_is_not_equal_to_the_result_of_executing_Statement2()
         {
             // Arrange
@@ -173,6 +212,19 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_IsEqualToOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols<int>(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new IsEqualToOp<int>()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
         }
 
         [Fact]

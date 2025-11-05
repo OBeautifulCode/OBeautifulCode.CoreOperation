@@ -25,6 +25,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             var result = operation.Value;
 
             return result;
@@ -38,6 +40,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             var result = await Task.FromResult(operation.Value);
 

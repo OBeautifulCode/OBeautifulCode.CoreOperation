@@ -45,6 +45,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             T result;
 
             // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
@@ -68,6 +70,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             T result;
 
@@ -93,6 +97,8 @@ namespace OBeautifulCode.CoreOperation
                 throw new ArgumentNullException(nameof(operation));
             }
 
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
             var value1 = this.protocolFactory.GetProtocolAndExecuteViaReflection<T>(operation.Statement1);
 
             var value2 = this.protocolFactory.GetProtocolAndExecuteViaReflection<T>(operation.Statement2);
@@ -110,6 +116,8 @@ namespace OBeautifulCode.CoreOperation
             {
                 throw new ArgumentNullException(nameof(operation));
             }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
 
             var value1 = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<T>(operation.Statement1);
 
