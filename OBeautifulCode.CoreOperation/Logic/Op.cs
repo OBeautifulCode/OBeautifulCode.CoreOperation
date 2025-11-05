@@ -72,7 +72,10 @@ namespace OBeautifulCode.CoreOperation
         public static GetConstValueOp<TValue> Const<TValue>(
             TValue value)
         {
-            var result = new GetConstValueOp<TValue>(value);
+            var result = new GetConstValueOp<TValue>
+            {
+                Value = value,
+            };
 
             return result;
         }

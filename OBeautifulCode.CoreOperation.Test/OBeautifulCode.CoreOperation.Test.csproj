@@ -72,8 +72,8 @@
     <Reference Include="OBeautifulCode.Serialization.PropertyBag, Version=1.0.151.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\OBeautifulCode.Serialization.PropertyBag.1.0.151\lib\net462\OBeautifulCode.Serialization.PropertyBag.dll</HintPath>
     </Reference>
-    <Reference Include="OBeautifulCode.Type, Version=1.0.153.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\OBeautifulCode.Type.1.0.153\lib\net462\OBeautifulCode.Type.dll</HintPath>
+    <Reference Include="OBeautifulCode.Type, Version=1.0.154.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OBeautifulCode.Type.1.0.154\lib\net462\OBeautifulCode.Type.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
@@ -205,6 +205,11 @@
     <Compile Include=".recipes\OBeautifulCode.Type\TypeDummyFactory.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\TypeDummyFactory.designer.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\TypeExtensions.cs" />
+    <Compile Include="Logic\GetConstValueProtocolTest.cs" />
+    <Compile Include="Models\Classes\Other\GetConstValueOp{TValue}Test.cs" />
+    <Compile Include="Models\Classes\Other\GetConstValueOp{TValue}Test.designer.cs">
+      <DependentUpon>GetConstValueOp{TValue}Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\CoreCompositeOperationProtocolsTest.cs" />
     <Compile Include="Logic\CoreCompositeOperationProtocolsTTest.cs" />
     <Compile Include="Logic\OpTest.cs" />
@@ -278,6 +283,30 @@
     <Compile Include="Models\Classes\TwoStatementOpBase{TStatement,TResult}Test.cs" />
     <Compile Include="Models\Classes\TwoStatementOpBase{TStatement,TResult}Test.designer.cs">
       <DependentUpon>TwoStatementOpBase{TStatement,TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionAbortedExceptionOpTest.cs" />
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionAbortedExceptionOpTest.designer.cs">
+      <DependentUpon>ThrowOpExecutionAbortedExceptionOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionAbortedExceptionOp{TResult}Test.cs" />
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionAbortedExceptionOp{TResult}Test.designer.cs">
+      <DependentUpon>ThrowOpExecutionAbortedExceptionOp{TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionDeemedNotApplicableExceptionOpTest.cs" />
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionDeemedNotApplicableExceptionOpTest.designer.cs">
+      <DependentUpon>ThrowOpExecutionDeemedNotApplicableExceptionOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionDeemedNotApplicableExceptionOp{TResult}Test.cs" />
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionDeemedNotApplicableExceptionOp{TResult}Test.designer.cs">
+      <DependentUpon>ThrowOpExecutionDeemedNotApplicableExceptionOp{TResult}Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionFailedExceptionOpTest.cs" />
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionFailedExceptionOpTest.designer.cs">
+      <DependentUpon>ThrowOpExecutionFailedExceptionOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionFailedExceptionOp{TResult}Test.cs" />
+    <Compile Include="Models\Classes\Throw\ThrowOpExecutionFailedExceptionOp{TResult}Test.designer.cs">
+      <DependentUpon>ThrowOpExecutionFailedExceptionOp{TResult}Test.cs</DependentUpon>
     </Compile>
     <None Include=".analyzers\test.ruleset" />
     <None Include="DummyFactory.recipe-nuspec" />

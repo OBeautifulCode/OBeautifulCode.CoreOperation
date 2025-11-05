@@ -109,6 +109,7 @@ namespace OBeautifulCode.CoreOperation.Test
                         A.Dummy<AndAlsoOp>(),
                         A.Dummy<CompareOp>(),
                         A.Dummy<DivideOp>(),
+                        A.Dummy<GetConstValueOp<Version>>(),
                         A.Dummy<IfThenElseOp<Version>>(),
                         A.Dummy<IsEqualToOp<Version>>(),
                         A.Dummy<NotOp>(),
@@ -117,6 +118,12 @@ namespace OBeautifulCode.CoreOperation.Test
                         A.Dummy<NullTwoStatementOp<Version, Version>>(),
                         A.Dummy<OrElseOp>(),
                         A.Dummy<SumOp>(),
+                        A.Dummy<ThrowOpExecutionAbortedExceptionOp>(),
+                        A.Dummy<ThrowOpExecutionAbortedExceptionOp<Version>>(),
+                        A.Dummy<ThrowOpExecutionDeemedNotApplicableExceptionOp>(),
+                        A.Dummy<ThrowOpExecutionDeemedNotApplicableExceptionOp<Version>>(),
+                        A.Dummy<ThrowOpExecutionFailedExceptionOp>(),
+                        A.Dummy<ThrowOpExecutionFailedExceptionOp<Version>>(),
                     },
                 });
 

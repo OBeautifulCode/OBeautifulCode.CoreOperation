@@ -57,6 +57,12 @@ namespace OBeautifulCode.CoreOperation.Test
                              });
 
             AutoFixtureBackedDummyFactory.AddDummyCreator(
+                () => new GetConstValueOp<Version>
+                             {
+                                 Value = A.Dummy<Version>(),
+                             });
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(
                 () => new GetNumberOfSignificantDigitsOp
                              {
                                  Statement = A.Dummy<IReturningOperation<decimal>>(),
@@ -147,6 +153,30 @@ namespace OBeautifulCode.CoreOperation.Test
                              {
                                  Statements = A.Dummy<IReadOnlyCollection<IReturningOperation<decimal>>>(),
                              });
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(
+                () => new ThrowOpExecutionAbortedExceptionOp(
+                                 A.Dummy<string>()));
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(
+                () => new ThrowOpExecutionAbortedExceptionOp<Version>(
+                                 A.Dummy<string>()));
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(
+                () => new ThrowOpExecutionDeemedNotApplicableExceptionOp(
+                                 A.Dummy<string>()));
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(
+                () => new ThrowOpExecutionDeemedNotApplicableExceptionOp<Version>(
+                                 A.Dummy<string>()));
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(
+                () => new ThrowOpExecutionFailedExceptionOp(
+                                 A.Dummy<string>()));
+
+            AutoFixtureBackedDummyFactory.AddDummyCreator(
+                () => new ThrowOpExecutionFailedExceptionOp<Version>(
+                                 A.Dummy<string>()));
 
             AutoFixtureBackedDummyFactory.AddDummyCreator(
                 () =>
