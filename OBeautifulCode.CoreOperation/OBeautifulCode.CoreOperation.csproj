@@ -98,9 +98,17 @@
     <Compile Include="Models\Classes\Conditional\IfThenElseOp{TResult}.designer.cs">
       <DependentUpon>IfThenElseOp{TResult}.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Classes\Decimal\SubtractOp.cs" />
+    <Compile Include="Models\Classes\Decimal\SubtractOp.designer.cs">
+      <DependentUpon>SubtractOp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Classes\Decimal\DivideOp.cs" />
     <Compile Include="Models\Classes\Decimal\DivideOp.designer.cs">
       <DependentUpon>DivideOp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Decimal\MultiplyOp.cs" />
+    <Compile Include="Models\Classes\Decimal\MultiplyOp.designer.cs">
+      <DependentUpon>MultiplyOp.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Classes\Decimal\SumOp.cs" />
     <Compile Include="Models\Classes\Decimal\SumOp.designer.cs">

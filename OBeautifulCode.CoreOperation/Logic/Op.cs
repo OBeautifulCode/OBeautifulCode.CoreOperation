@@ -182,7 +182,7 @@ namespace OBeautifulCode.CoreOperation
         }
 
         /// <summary>
-        /// Builds an <see cref="SumOp"/>.
+        /// Builds a <see cref="SumOp"/>.
         /// </summary>
         /// <param name="statements">The statements.</param>
         /// <returns>
@@ -194,6 +194,66 @@ namespace OBeautifulCode.CoreOperation
             var result = new SumOp
             {
                 Statements = statements,
+            };
+
+            return result;
+        }
+
+        /// <summary>
+        /// Builds a <see cref="SubtractOp" />.
+        /// </summary>
+        /// <param name="leftOperand">The left operand.</param>
+        /// <param name="rightOperand">The right operand.</param>
+        /// <returns>
+        /// The operation.
+        /// </returns>
+        public static SubtractOp Subtract(
+            IReturningOperation<decimal> leftOperand,
+            IReturningOperation<decimal> rightOperand)
+        {
+            var result = new SubtractOp
+            {
+                LeftOperand = leftOperand,
+                RightOperand = rightOperand,
+            };
+
+            return result;
+        }
+
+        /// <summary>
+        /// Builds a <see cref="MultiplyOp"/>.
+        /// </summary>
+        /// <param name="statements">The statements.</param>
+        /// <returns>
+        /// The operation.
+        /// </returns>
+        public static MultiplyOp Multiply(
+            params IReturningOperation<decimal>[] statements)
+        {
+            var result = new MultiplyOp
+            {
+                Statements = statements,
+            };
+
+            return result;
+        }
+
+        /// <summary>
+        /// Builds a <see cref="DivideOp"/>.
+        /// </summary>
+        /// <param name="numerator">The numerator.</param>
+        /// <param name="denominator">The denominator.</param>
+        /// <returns>
+        /// The operation.
+        /// </returns>
+        public static DivideOp Divide(
+            IReturningOperation<decimal> numerator,
+            IReturningOperation<decimal> denominator)
+        {
+            var result = new DivideOp
+            {
+                Numerator = numerator,
+                Denominator = denominator,
             };
 
             return result;
@@ -300,27 +360,6 @@ namespace OBeautifulCode.CoreOperation
             var result = new GetNumberOfSignificantDigitsOp
             {
                 Statement = statement,
-            };
-
-            return result;
-        }
-
-        /// <summary>
-        /// Builds an <see cref="DivideOp"/>.
-        /// </summary>
-        /// <param name="numerator">The numerator.</param>
-        /// <param name="denominator">The denominator.</param>
-        /// <returns>
-        /// The operation.
-        /// </returns>
-        public static DivideOp Divide(
-            IReturningOperation<decimal> numerator,
-            IReturningOperation<decimal> denominator)
-        {
-            var result = new DivideOp
-            {
-                Numerator = numerator,
-                Denominator = denominator,
             };
 
             return result;

@@ -205,6 +205,10 @@
     <Compile Include=".recipes\OBeautifulCode.Type\TypeDummyFactory.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\TypeDummyFactory.designer.cs" />
     <Compile Include=".recipes\OBeautifulCode.Type\TypeExtensions.cs" />
+    <Compile Include="Models\Classes\Decimal\SubtractOpTest.cs" />
+    <Compile Include="Models\Classes\Decimal\SubtractOpTest.designer.cs">
+      <DependentUpon>SubtractOpTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\GetConstValueProtocolTest.cs" />
     <Compile Include="Models\Classes\Other\GetConstValueOp{TValue}Test.cs" />
     <Compile Include="Models\Classes\Other\GetConstValueOp{TValue}Test.designer.cs">
@@ -263,6 +267,10 @@
     <Compile Include="Models\Classes\Bool\OrElseOpTest.cs" />
     <Compile Include="Models\Classes\Bool\OrElseOpTest.designer.cs">
       <DependentUpon>OrElseOpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes\Decimal\MultiplyOpTest.cs" />
+    <Compile Include="Models\Classes\Decimal\MultiplyOpTest.designer.cs">
+      <DependentUpon>MultiplyOpTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />

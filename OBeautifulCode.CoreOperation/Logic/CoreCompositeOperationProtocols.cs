@@ -16,13 +16,15 @@ namespace OBeautifulCode.CoreOperation
     /// Protocols that handle operations that are composed of other operations.
     /// </summary>
     public class CoreCompositeOperationProtocols :
-          ISyncAndAsyncReturningProtocol<AndAlsoOp, bool>,
-          ISyncAndAsyncReturningProtocol<OrElseOp, bool>,
-          ISyncAndAsyncReturningProtocol<NotOp, bool>,
-          ISyncAndAsyncReturningProtocol<SumOp, decimal>,
-          ISyncAndAsyncReturningProtocol<CompareOp, bool>,
-          ISyncAndAsyncReturningProtocol<GetNumberOfSignificantDigitsOp, int>,
-          ISyncAndAsyncReturningProtocol<DivideOp, decimal>
+        ISyncAndAsyncReturningProtocol<AndAlsoOp, bool>,
+        ISyncAndAsyncReturningProtocol<OrElseOp, bool>,
+        ISyncAndAsyncReturningProtocol<NotOp, bool>,
+        ISyncAndAsyncReturningProtocol<SumOp, decimal>,
+        ISyncAndAsyncReturningProtocol<SubtractOp, decimal>,
+        ISyncAndAsyncReturningProtocol<MultiplyOp, decimal>,
+        ISyncAndAsyncReturningProtocol<DivideOp, decimal>,
+        ISyncAndAsyncReturningProtocol<CompareOp, bool>,
+        ISyncAndAsyncReturningProtocol<GetNumberOfSignificantDigitsOp, int>
     {
         private readonly IProtocolFactory protocolFactory;
 
@@ -199,6 +201,126 @@ namespace OBeautifulCode.CoreOperation
         }
 
         /// <inheritdoc />
+        public decimal Execute(
+            SubtractOp operation)
+        {
+            if (operation == null)
+            {
+                throw new ArgumentNullException(nameof(operation));
+            }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
+            var leftOperand = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.LeftOperand);
+            var rightOperand = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.RightOperand);
+
+            var result = leftOperand - rightOperand;
+
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<decimal> ExecuteAsync(
+            SubtractOp operation)
+        {
+            if (operation == null)
+            {
+                throw new ArgumentNullException(nameof(operation));
+            }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
+            var leftOperand = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.LeftOperand);
+            var rightOperand = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.RightOperand);
+
+            var result = leftOperand - rightOperand;
+
+            return result;
+        }
+
+        /// <inheritdoc />
+        public decimal Execute(
+            MultiplyOp operation)
+        {
+            if (operation == null)
+            {
+                throw new ArgumentNullException(nameof(operation));
+            }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
+            var result = 1.0m;
+
+            foreach (var statement in operation.Statements)
+            {
+                result *= this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(statement);
+            }
+
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<decimal> ExecuteAsync(
+            MultiplyOp operation)
+        {
+            if (operation == null)
+            {
+                throw new ArgumentNullException(nameof(operation));
+            }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
+            var result = 1.0m;
+
+            foreach (var statement in operation.Statements)
+            {
+                result *= await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(statement);
+            }
+
+            return result;
+        }
+
+        /// <inheritdoc />
+        public decimal Execute(
+            DivideOp operation)
+        {
+            if (operation == null)
+            {
+                throw new ArgumentNullException(nameof(operation));
+            }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
+            var numerator = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.Numerator);
+
+            var denominator = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.Denominator);
+
+            var result = numerator / denominator;
+
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<decimal> ExecuteAsync(
+            DivideOp operation)
+        {
+            if (operation == null)
+            {
+                throw new ArgumentNullException(nameof(operation));
+            }
+
+            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
+
+            var numerator = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.Numerator);
+
+            var denominator = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.Denominator);
+
+            var result = numerator / denominator;
+
+            return result;
+        }
+
+        /// <inheritdoc />
         public bool Execute(
             CompareOp operation)
         {
@@ -274,46 +396,6 @@ namespace OBeautifulCode.CoreOperation
             var value = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.Statement);
 
             var result = GetNumberOfSignificantDigit(value);
-
-            return result;
-        }
-
-        /// <inheritdoc />
-        public decimal Execute(
-            DivideOp operation)
-        {
-            if (operation == null)
-            {
-                throw new ArgumentNullException(nameof(operation));
-            }
-
-            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
-
-            var numerator = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.Numerator);
-
-            var denominator = this.protocolFactory.GetProtocolAndExecuteViaReflection<decimal>(operation.Denominator);
-
-            var result = numerator / denominator;
-
-            return result;
-        }
-
-        /// <inheritdoc />
-        public async Task<decimal> ExecuteAsync(
-            DivideOp operation)
-        {
-            if (operation == null)
-            {
-                throw new ArgumentNullException(nameof(operation));
-            }
-
-            operation.ThrowIfInvalid(new ValidationOptions { ValidationScope = ValidationScope.SelfOnly });
-
-            var numerator = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.Numerator);
-
-            var denominator = await this.protocolFactory.GetProtocolAndExecuteViaReflectionAsync<decimal>(operation.Denominator);
-
-            var result = numerator / denominator;
 
             return result;
         }

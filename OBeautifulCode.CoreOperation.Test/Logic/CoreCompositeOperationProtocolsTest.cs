@@ -452,6 +452,282 @@ namespace OBeautifulCode.CoreOperation.Test
         }
 
         [Fact]
+        public static void Execute_SubtractOp___Should_throw_ArgumentNullException___When_operation_is_null()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute((SubtractOp)null));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static void Execute_SubtractOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new SubtractOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
+        public static void Execute_SubtractOp___Should_execute_LeftOperand_and_subtract_the_result_of_executing_RightOperand___When_called()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            var operation = Op.Subtract(Op.Const(1m), Op.Const(2m));
+
+            // Act
+            var actual = systemUnderTest.Execute(operation);
+
+            // Assert
+            actual.AsTest().Must().BeEqualTo(-1m);
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_SubtractOp___Should_throw_ArgumentNullException___When_operation_is_null()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync((SubtractOp)null));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_SubtractOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new SubtractOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_SubtractOp___Should_execute_LeftOperand_and_subtract_the_result_of_executing_RightOperand___When_called()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            var operation = Op.Subtract(Op.Const(1m), Op.Const(2m));
+
+            // Act
+            var actual = await systemUnderTest.ExecuteAsync(operation);
+
+            // Assert
+            actual.AsTest().Must().BeEqualTo(-1m);
+        }
+
+        [Fact]
+        public static void Execute_MultiplyOp___Should_throw_ArgumentNullException___When_operation_is_null()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute((MultiplyOp)null));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static void Execute_MultiplyOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new MultiplyOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
+        public static void Execute_MultiplyOp___Should_return_sum_of_the_results_of_executing_Statements___When_called()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            var operation = Op.Multiply(Op.Const(2m), Op.Const(3m), Op.Const(4m));
+
+            // Act
+            var actual = systemUnderTest.Execute(operation);
+
+            // Assert
+            actual.AsTest().Must().BeEqualTo(24m);
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_MultiplyOp___Should_throw_ArgumentNullException___When_operation_is_null()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync((MultiplyOp)null));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_MultiplyOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new MultiplyOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_MultiplyOp___Should_return_sum_of_the_results_of_executing_Statements___When_called()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            var operation = Op.Multiply(Op.Const(2m), Op.Const(3m), Op.Const(4m));
+
+            // Act
+            var actual = await systemUnderTest.ExecuteAsync(operation);
+
+            // Assert
+            actual.AsTest().Must().BeEqualTo(24m);
+        }
+
+        [Fact]
+        public static void Execute_DivideOp___Should_throw_ArgumentNullException___When_operation_is_null()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute((DivideOp)null));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static void Execute_DivideOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(new DivideOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
+        public static void Execute_DivideOp___Should_throw_DivideByZeroException___When_executing_Numerator_returns_0()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            var operation = Op.Divide(Op.Const(1m), Op.Const(0m));
+
+            // Act
+            var actual = Record.Exception(() => systemUnderTest.Execute(operation));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<DivideByZeroException>();
+        }
+
+        [Fact]
+        public static void Execute_DivideOp___Should_execute_Numerator_and_divide_the_result_by_the_result_of_executing_Denominator___When_called()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            var operation = Op.Divide(Op.Const(1m), Op.Const(2m));
+
+            // Act
+            var actual = systemUnderTest.Execute(operation);
+
+            // Assert
+            actual.AsTest().Must().BeEqualTo(.5m);
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_DivideOp___Should_throw_ArgumentNullException___When_operation_is_null()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync((DivideOp)null));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_DivideOp___Should_throw_ValidationException___When_operation_is_invalid()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new DivideOp()));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<ValidationException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_DivideOp___Should_throw_DivideByZeroException___When_executing_Numerator_returns_0()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            var operation = Op.Divide(Op.Const(1m), Op.Const(0m));
+
+            // Act
+            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(operation));
+
+            // Assert
+            actual.AsTest().Must().BeOfType<DivideByZeroException>();
+        }
+
+        [Fact]
+        public static async Task ExecuteAsync_DivideOp___Should_execute_Numerator_and_divide_the_result_by_the_result_of_executing_Denominator___When_called()
+        {
+            // Arrange
+            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
+
+            var operation = Op.Divide(Op.Const(1m), Op.Const(2m));
+
+            // Act
+            var actual = await systemUnderTest.ExecuteAsync(operation);
+
+            // Assert
+            actual.AsTest().Must().BeEqualTo(.5m);
+        }
+
+        [Fact]
         public static void Execute_CompareOp___Should_throw_ArgumentNullException___When_operation_is_null()
         {
             // Arrange
@@ -943,118 +1219,6 @@ namespace OBeautifulCode.CoreOperation.Test
 
             // Assert
             actual.AsTest().Must().BeEqualTo(4);
-        }
-
-        [Fact]
-        public static void Execute_DivideOp___Should_throw_ArgumentNullException___When_operation_is_null()
-        {
-            // Arrange
-            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
-
-            // Act
-            var actual = Record.Exception(() => systemUnderTest.Execute((DivideOp)null));
-
-            // Assert
-            actual.AsTest().Must().BeOfType<ArgumentNullException>();
-        }
-
-        [Fact]
-        public static void Execute_DivideOp___Should_throw_ValidationException___When_operation_is_invalid()
-        {
-            // Arrange
-            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
-
-            // Act
-            var actual = Record.Exception(() => systemUnderTest.Execute(new DivideOp()));
-
-            // Assert
-            actual.AsTest().Must().BeOfType<ValidationException>();
-        }
-
-        [Fact]
-        public static void Execute_DivideOp___Should_throw_DivideByZeroException___When_executing_Numerator_returns_0()
-        {
-            // Arrange
-            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
-
-            var operation = Op.Divide(Op.Const(1m), Op.Const(0m));
-
-            // Act
-            var actual = Record.Exception(() => systemUnderTest.Execute(operation));
-
-            // Assert
-            actual.AsTest().Must().BeOfType<DivideByZeroException>();
-        }
-
-        [Fact]
-        public static void Execute_DivideOp___Should_execute_Numerator_and_divide_the_result_by_the_result_of_executing_Denominator___When_called()
-        {
-            // Arrange
-            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
-
-            var operation = Op.Divide(Op.Const(1m), Op.Const(2m));
-
-            // Act
-            var actual = systemUnderTest.Execute(operation);
-
-            // Assert
-            actual.AsTest().Must().BeEqualTo(.5m);
-        }
-
-        [Fact]
-        public static async Task ExecuteAsync_DivideOp___Should_throw_ArgumentNullException___When_operation_is_null()
-        {
-            // Arrange
-            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
-
-            // Act
-            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync((DivideOp)null));
-
-            // Assert
-            actual.AsTest().Must().BeOfType<ArgumentNullException>();
-        }
-
-        [Fact]
-        public static async Task ExecuteAsync_DivideOp___Should_throw_ValidationException___When_operation_is_invalid()
-        {
-            // Arrange
-            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
-
-            // Act
-            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(new DivideOp()));
-
-            // Assert
-            actual.AsTest().Must().BeOfType<ValidationException>();
-        }
-
-        [Fact]
-        public static async Task ExecuteAsync_DivideOp___Should_throw_DivideByZeroException___When_executing_Numerator_returns_0()
-        {
-            // Arrange
-            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
-
-            var operation = Op.Divide(Op.Const(1m), Op.Const(0m));
-
-            // Act
-            var actual = await Record.ExceptionAsync(() => systemUnderTest.ExecuteAsync(operation));
-
-            // Assert
-            actual.AsTest().Must().BeOfType<DivideByZeroException>();
-        }
-
-        [Fact]
-        public static async Task ExecuteAsync_DivideOp___Should_execute_Numerator_and_divide_the_result_by_the_result_of_executing_Denominator___When_called()
-        {
-            // Arrange
-            var systemUnderTest = new CoreCompositeOperationProtocols(ProtocolFactory);
-
-            var operation = Op.Divide(Op.Const(1m), Op.Const(2m));
-
-            // Act
-            var actual = await systemUnderTest.ExecuteAsync(operation);
-
-            // Assert
-            actual.AsTest().Must().BeEqualTo(.5m);
         }
     }
 }

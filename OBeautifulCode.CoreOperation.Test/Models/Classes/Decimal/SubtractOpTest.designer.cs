@@ -34,69 +34,96 @@ namespace OBeautifulCode.CoreOperation.Test
 
     using static global::System.FormattableString;
 
-    public static partial class OrElseOpTest
+    public static partial class SubtractOpTest
     {
-        private static readonly StringRepresentationTestScenarios<OrElseOp> StringRepresentationTestScenarios = new StringRepresentationTestScenarios<OrElseOp>()
+        private static readonly StringRepresentationTestScenarios<SubtractOp> StringRepresentationTestScenarios = new StringRepresentationTestScenarios<SubtractOp>()
             .AddScenario(() =>
-                new StringRepresentationTestScenario<OrElseOp>
+                new StringRepresentationTestScenario<SubtractOp>
                 {
                     Name = "Default Code Generated Scenario",
                     SystemUnderTestExpectedStringRepresentationFunc = () =>
                     {
-                        var systemUnderTest = A.Dummy<OrElseOp>();
+                        var systemUnderTest = A.Dummy<SubtractOp>();
 
-                        var result = new SystemUnderTestExpectedStringRepresentation<OrElseOp>
+                        var result = new SystemUnderTestExpectedStringRepresentation<SubtractOp>
                         {
                             SystemUnderTest = systemUnderTest,
-                            ExpectedStringRepresentation = Invariant($"OBeautifulCode.CoreOperation.OrElseOp: Statements = {systemUnderTest.Statements?.ToString() ?? "<null>"}."),
+                            ExpectedStringRepresentation = Invariant($"OBeautifulCode.CoreOperation.SubtractOp: LeftOperand = {systemUnderTest.LeftOperand?.ToString() ?? "<null>"}, RightOperand = {systemUnderTest.RightOperand?.ToString() ?? "<null>"}."),
                         };
 
                         return result;
                     },
                 });
 
-        private static readonly DeepCloneWithTestScenarios<OrElseOp> DeepCloneWithTestScenarios = new DeepCloneWithTestScenarios<OrElseOp>()
+        private static readonly DeepCloneWithTestScenarios<SubtractOp> DeepCloneWithTestScenarios = new DeepCloneWithTestScenarios<SubtractOp>()
             .AddScenario(() =>
-                new DeepCloneWithTestScenario<OrElseOp>
+                new DeepCloneWithTestScenario<SubtractOp>
                 {
-                    Name = "DeepCloneWithStatements should deep clone object and replace Statements with the provided statements",
-                    WithPropertyName = "Statements",
+                    Name = "DeepCloneWithLeftOperand should deep clone object and replace LeftOperand with the provided leftOperand",
+                    WithPropertyName = "LeftOperand",
                     SystemUnderTestDeepCloneWithValueFunc = () =>
                     {
-                        var systemUnderTest = A.Dummy<OrElseOp>();
+                        var systemUnderTest = A.Dummy<SubtractOp>();
 
-                        var referenceObject = A.Dummy<OrElseOp>().ThatIs(_ => !systemUnderTest.Statements.IsEqualTo(_.Statements));
+                        var referenceObject = A.Dummy<SubtractOp>().ThatIs(_ => !systemUnderTest.LeftOperand.IsEqualTo(_.LeftOperand));
 
-                        var result = new SystemUnderTestDeepCloneWithValue<OrElseOp>
+                        var result = new SystemUnderTestDeepCloneWithValue<SubtractOp>
                         {
                             SystemUnderTest = systemUnderTest,
-                            DeepCloneWithValue = referenceObject.Statements,
+                            DeepCloneWithValue = referenceObject.LeftOperand,
+                        };
+
+                        return result;
+                    },
+                })
+            .AddScenario(() =>
+                new DeepCloneWithTestScenario<SubtractOp>
+                {
+                    Name = "DeepCloneWithRightOperand should deep clone object and replace RightOperand with the provided rightOperand",
+                    WithPropertyName = "RightOperand",
+                    SystemUnderTestDeepCloneWithValueFunc = () =>
+                    {
+                        var systemUnderTest = A.Dummy<SubtractOp>();
+
+                        var referenceObject = A.Dummy<SubtractOp>().ThatIs(_ => !systemUnderTest.RightOperand.IsEqualTo(_.RightOperand));
+
+                        var result = new SystemUnderTestDeepCloneWithValue<SubtractOp>
+                        {
+                            SystemUnderTest = systemUnderTest,
+                            DeepCloneWithValue = referenceObject.RightOperand,
                         };
 
                         return result;
                     },
                 });
 
-        private static readonly OrElseOp ReferenceObjectForEquatableTestScenarios = A.Dummy<OrElseOp>();
+        private static readonly SubtractOp ReferenceObjectForEquatableTestScenarios = A.Dummy<SubtractOp>();
 
-        private static readonly EquatableTestScenarios<OrElseOp> EquatableTestScenarios = new EquatableTestScenarios<OrElseOp>()
+        private static readonly EquatableTestScenarios<SubtractOp> EquatableTestScenarios = new EquatableTestScenarios<SubtractOp>()
             .AddScenario(() =>
-                new EquatableTestScenario<OrElseOp>
+                new EquatableTestScenario<SubtractOp>
                 {
                     Name = "Default Code Generated Scenario",
                     ReferenceObject = ReferenceObjectForEquatableTestScenarios,
-                    ObjectsThatAreEqualToButNotTheSameAsReferenceObject = new OrElseOp[]
+                    ObjectsThatAreEqualToButNotTheSameAsReferenceObject = new SubtractOp[]
                     {
-                        new OrElseOp
+                        new SubtractOp
                             {
-                                Statements = ReferenceObjectForEquatableTestScenarios.Statements,
+                                LeftOperand  = ReferenceObjectForEquatableTestScenarios.LeftOperand,
+                                RightOperand = ReferenceObjectForEquatableTestScenarios.RightOperand,
                             },
                     },
-                    ObjectsThatAreNotEqualToReferenceObject = new OrElseOp[]
+                    ObjectsThatAreNotEqualToReferenceObject = new SubtractOp[]
                     {
-                        new OrElseOp
+                        new SubtractOp
                             {
-                                Statements = A.Dummy<OrElseOp>().Whose(_ => !_.Statements.IsEqualTo(ReferenceObjectForEquatableTestScenarios.Statements)).Statements,
+                                LeftOperand  = A.Dummy<SubtractOp>().Whose(_ => !_.LeftOperand.IsEqualTo(ReferenceObjectForEquatableTestScenarios.LeftOperand)).LeftOperand,
+                                RightOperand = ReferenceObjectForEquatableTestScenarios.RightOperand,
+                            },
+                        new SubtractOp
+                            {
+                                LeftOperand  = ReferenceObjectForEquatableTestScenarios.LeftOperand,
+                                RightOperand = A.Dummy<SubtractOp>().Whose(_ => !_.RightOperand.IsEqualTo(ReferenceObjectForEquatableTestScenarios.RightOperand)).RightOperand,
                             },
                     },
                     ObjectsThatAreNotOfTheSameTypeAsReferenceObject = new object[]
@@ -118,7 +145,7 @@ namespace OBeautifulCode.CoreOperation.Test
                         A.Dummy<NullMultiStatementOp<Version, Version>>(),
                         A.Dummy<NullSingleStatementOp<Version, Version>>(),
                         A.Dummy<NullTwoStatementOp<Version, Version>>(),
-                        A.Dummy<SubtractOp>(),
+                        A.Dummy<OrElseOp>(),
                         A.Dummy<SumOp>(),
                         A.Dummy<ThrowOpExecutionAbortedExceptionOp>(),
                         A.Dummy<ThrowOpExecutionAbortedExceptionOp<Version>>(),
@@ -129,27 +156,27 @@ namespace OBeautifulCode.CoreOperation.Test
                     },
                 });
 
-        private static readonly ValidModelTestScenarios<OrElseOp> ValidModelTestScenarios = new ValidModelTestScenarios<OrElseOp>()
+        private static readonly ValidModelTestScenarios<SubtractOp> ValidModelTestScenarios = new ValidModelTestScenarios<SubtractOp>()
             .AddScenario(() =>
-                new ValidModelTestScenario<OrElseOp>
+                new ValidModelTestScenario<SubtractOp>
                 {
-                    Name = "a dummy OrElseOp should be valid",
-                    SystemUnderTest = A.Dummy<OrElseOp>(),
+                    Name = "a dummy SubtractOp should be valid",
+                    SystemUnderTest = A.Dummy<SubtractOp>(),
                 });
 
-        private static readonly SelfValidationTestScenarios<OrElseOp> SelfValidationTestScenarios = new SelfValidationTestScenarios<OrElseOp>()
+        private static readonly SelfValidationTestScenarios<SubtractOp> SelfValidationTestScenarios = new SelfValidationTestScenarios<SubtractOp>()
             .AddScenario(() =>
                 {
-                    var systemUnderTest = A.Dummy<OrElseOp>();
+                    var systemUnderTest = A.Dummy<SubtractOp>();
 
-                    systemUnderTest.Statements = null;
+                    systemUnderTest.LeftOperand = null;
 
-                    var result = new SelfValidationTestScenario<OrElseOp>
+                    var result = new SelfValidationTestScenario<SubtractOp>
                     {
-                        Name = "GetSelfValidationFailures() should return a failure when property 'Statements' is null scenario",
+                        Name = "GetSelfValidationFailures() should return a failure when property 'LeftOperand' is null scenario",
                         SystemUnderTest = systemUnderTest,
-                        ExpectedFailurePropertyNames = new[] { "Statements" },
-                        ExpectedFailureMessageContains = new[] { "Statements", "null", },
+                        ExpectedFailurePropertyNames = new[] { "LeftOperand" },
+                        ExpectedFailureMessageContains = new[] { "LeftOperand", "null", },
                         ScenarioPassesWhen = SelfValidationTestScenarioPassesWhen.OnlyOneFailureMeetsExpectation,
                     };
 
@@ -157,33 +184,16 @@ namespace OBeautifulCode.CoreOperation.Test
                 })
             .AddScenario(() =>
                 {
-                    var systemUnderTest = A.Dummy<OrElseOp>();
+                    var systemUnderTest = A.Dummy<SubtractOp>();
 
-                    systemUnderTest.Statements = new List<IReturningOperation<bool>>();
+                    systemUnderTest.RightOperand = null;
 
-                    var result = new SelfValidationTestScenario<OrElseOp>
+                    var result = new SelfValidationTestScenario<SubtractOp>
                     {
-                        Name = "GetSelfValidationFailures() should return a failure when property 'Statements' is an empty enumerable scenario",
+                        Name = "GetSelfValidationFailures() should return a failure when property 'RightOperand' is null scenario",
                         SystemUnderTest = systemUnderTest,
-                        ExpectedFailurePropertyNames = new[] { "Statements" },
-                        ExpectedFailureMessageContains = new[] { "Statements", "is an empty enumerable", },
-                        ScenarioPassesWhen = SelfValidationTestScenarioPassesWhen.OnlyOneFailureMeetsExpectation,
-                    };
-
-                    return result;
-                })
-            .AddScenario(() =>
-                {
-                    var systemUnderTest = A.Dummy<OrElseOp>();
-
-                    systemUnderTest.Statements = new IReturningOperation<bool>[0].Concat(systemUnderTest.Statements).Concat(new IReturningOperation<bool>[] { null }).Concat(systemUnderTest.Statements).ToList();
-
-                    var result = new SelfValidationTestScenario<OrElseOp>
-                    {
-                        Name = "GetSelfValidationFailures() should return a failure when property 'Statements' contains a null element scenario",
-                        SystemUnderTest = systemUnderTest,
-                        ExpectedFailurePropertyNames = new[] { "Statements" },
-                        ExpectedFailureMessageContains = new[] { "Statements", "contains at least one null element", },
+                        ExpectedFailurePropertyNames = new[] { "RightOperand" },
+                        ExpectedFailureMessageContains = new[] { "RightOperand", "null", },
                         ScenarioPassesWhen = SelfValidationTestScenarioPassesWhen.OnlyOneFailureMeetsExpectation,
                     };
 
@@ -208,12 +218,12 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void OrElseOp___Should_implement_IModel_of_OrElseOp___When_reflecting()
+            public static void SubtractOp___Should_implement_IModel_of_SubtractOp___When_reflecting()
             {
                 // Arrange
-                var type = typeof(OrElseOp);
+                var type = typeof(SubtractOp);
 
-                var expectedModelMethods = typeof(IModel<OrElseOp>).GetInterfaceDeclaredAndImplementedMethods();
+                var expectedModelMethods = typeof(IModel<SubtractOp>).GetInterfaceDeclaredAndImplementedMethods();
 
                 var expectedModelMethodHashes = expectedModelMethods.Select(_ => _.GetSignatureHash());
 
@@ -223,7 +233,7 @@ namespace OBeautifulCode.CoreOperation.Test
                 var actualModelMethodHashes = actualModelMethods.Select(_ => _.GetSignatureHash());
 
                 // Assert
-                actualInterfaces.AsTest().Must().ContainElement(typeof(IModel<OrElseOp>));
+                actualInterfaces.AsTest().Must().ContainElement(typeof(IModel<SubtractOp>));
                 expectedModelMethodHashes.Except(actualModelMethodHashes).AsTest().Must().BeEmptyEnumerable();
             }
 
@@ -241,10 +251,10 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void OrElseOp___Should_be_attributed_with_Serializable____When_reflecting()
+            public static void SubtractOp___Should_be_attributed_with_Serializable____When_reflecting()
             {
                 // Arrange
-                var type = typeof(OrElseOp);
+                var type = typeof(SubtractOp);
 
                 // Act
                 var actualAttributes = type.GetCustomAttributes(typeof(SerializableAttribute), false);
@@ -308,10 +318,10 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Clone___Should_clone_object___When_called()
             {
                 // Arrange
-                var systemUnderTest = A.Dummy<OrElseOp>();
+                var systemUnderTest = A.Dummy<SubtractOp>();
 
                 // Act
-                var actual = (OrElseOp)systemUnderTest.Clone();
+                var actual = (SubtractOp)systemUnderTest.Clone();
 
                 // Assert
                 actual.AsTest().Must().BeEqualTo(systemUnderTest);
@@ -335,7 +345,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void DeepClone___Should_deep_clone_object___When_called()
             {
                 // Arrange
-                var systemUnderTest = A.Dummy<OrElseOp>();
+                var systemUnderTest = A.Dummy<SubtractOp>();
 
                 // Act
                 var actual = systemUnderTest.DeepClone();
@@ -344,16 +354,28 @@ namespace OBeautifulCode.CoreOperation.Test
                 actual.AsTest().Must().BeEqualTo(systemUnderTest);
                 actual.AsTest().Must().NotBeSameReferenceAs(systemUnderTest);
 
-                if (systemUnderTest.Statements == null)
+                if (systemUnderTest.LeftOperand == null)
                 {
-                    actual.Statements.AsTest().Must().BeNull();
+                    actual.LeftOperand.AsTest().Must().BeNull();
                 }
-                else if (!actual.Statements.GetType().IsValueType)
+                else if (!actual.LeftOperand.GetType().IsValueType)
                 {
                     // When the declared type is a reference type, we still have to check the runtime type.
                     // The object could be a boxed value type, which will fail this asseration because
                     // a deep clone of a value type object is the same object.
-                    actual.Statements.AsTest().Must().NotBeSameReferenceAs(systemUnderTest.Statements);
+                    actual.LeftOperand.AsTest().Must().NotBeSameReferenceAs(systemUnderTest.LeftOperand);
+                }
+
+                if (systemUnderTest.RightOperand == null)
+                {
+                    actual.RightOperand.AsTest().Must().BeNull();
+                }
+                else if (!actual.RightOperand.GetType().IsValueType)
+                {
+                    // When the declared type is a reference type, we still have to check the runtime type.
+                    // The object could be a boxed value type, which will fail this asseration because
+                    // a deep clone of a value type object is the same object.
+                    actual.RightOperand.AsTest().Must().NotBeSameReferenceAs(systemUnderTest.RightOperand);
                 }
             }
 
@@ -373,7 +395,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
             public static void DeepCloneWith___Should_deep_clone_object_and_replace_the_associated_property_with_the_provided_value___When_called()
             {
-                var propertyNames = new string[] { "Statements" };
+                var propertyNames = new string[] { "LeftOperand", "RightOperand" };
 
                 var scenarios = DeepCloneWithTestScenarios.ValidateAndPrepareForTesting();
 
@@ -386,12 +408,12 @@ namespace OBeautifulCode.CoreOperation.Test
                     }
 
                     // Act
-                    var actual = (OrElseOp)scenario.DeepCloneWithMethod.Invoke(scenario.SystemUnderTest, new[] { scenario.WithValue });
+                    var actual = (SubtractOp)scenario.DeepCloneWithMethod.Invoke(scenario.SystemUnderTest, new[] { scenario.WithValue });
 
                     // Assert
                     foreach (var propertyName in propertyNames)
                     {
-                        var propertyInfo = typeof(OrElseOp).GetPropertyFiltered(propertyName, MemberRelationships.DeclaredOrInherited, MemberOwners.Instance, MemberAccessModifiers.Public);
+                        var propertyInfo = typeof(SubtractOp).GetPropertyFiltered(propertyName, MemberRelationships.DeclaredOrInherited, MemberOwners.Instance, MemberAccessModifiers.Public);
 
                         var actualPropertyValue = propertyInfo.GetValue(actual);
 
@@ -453,7 +475,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Deserialize___Should_roundtrip_object___When_serializing_to_and_deserializing_from_string_using_ObcBsonSerializer()
             {
                 // Arrange
-                var expected = A.Dummy<OrElseOp>();
+                var expected = A.Dummy<SubtractOp>();
 
                 var serializationConfigurationType = SerializationConfigurationTypes.BsonSerializationConfigurationType.ConcreteSerializationConfigurationDerivativeType;
 
@@ -482,7 +504,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Deserialize___Should_roundtrip_object___When_serializing_to_and_deserializing_from_bytes_using_ObcBsonSerializer()
             {
                 // Arrange
-                var expected = A.Dummy<OrElseOp>();
+                var expected = A.Dummy<SubtractOp>();
 
                 var serializationConfigurationType = SerializationConfigurationTypes.BsonSerializationConfigurationType.ConcreteSerializationConfigurationDerivativeType;
 
@@ -511,7 +533,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Deserialize___Should_roundtrip_object___When_serializing_to_and_deserializing_from_string_using_ObcJsonSerializer()
             {
                 // Arrange
-                var expected = A.Dummy<OrElseOp>();
+                var expected = A.Dummy<SubtractOp>();
 
                 var serializationConfigurationType = SerializationConfigurationTypes.JsonSerializationConfigurationType.ConcreteSerializationConfigurationDerivativeType;
 
@@ -540,7 +562,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Deserialize___Should_roundtrip_object___When_serializing_to_and_deserializing_from_bytes_using_ObcJsonSerializer()
             {
                 // Arrange
-                var expected = A.Dummy<OrElseOp>();
+                var expected = A.Dummy<SubtractOp>();
 
                 var serializationConfigurationType = SerializationConfigurationTypes.JsonSerializationConfigurationType.ConcreteSerializationConfigurationDerivativeType;
 
@@ -574,8 +596,8 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void EqualsOperator___Should_return_true___When_both_sides_of_operator_are_null()
             {
                 // Arrange
-                OrElseOp systemUnderTest1 = null;
-                OrElseOp systemUnderTest2 = null;
+                SubtractOp systemUnderTest1 = null;
+                SubtractOp systemUnderTest2 = null;
 
                 // Act
                 var actual = systemUnderTest1 == systemUnderTest2;
@@ -605,7 +627,7 @@ namespace OBeautifulCode.CoreOperation.Test
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    OrElseOp systemUnderTest = null;
+                    SubtractOp systemUnderTest = null;
 
                     // Act
                     var actual1 = systemUnderTest == scenario.ReferenceObject;
@@ -754,8 +776,8 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void NotEqualsOperator___Should_return_false___When_both_sides_of_operator_are_null()
             {
                 // Arrange
-                OrElseOp systemUnderTest1 = null;
-                OrElseOp systemUnderTest2 = null;
+                SubtractOp systemUnderTest1 = null;
+                SubtractOp systemUnderTest2 = null;
 
                 // Act
                 var actual = systemUnderTest1 != systemUnderTest2;
@@ -785,7 +807,7 @@ namespace OBeautifulCode.CoreOperation.Test
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    OrElseOp systemUnderTest = null;
+                    SubtractOp systemUnderTest = null;
 
                     // Act
                     var actual1 = systemUnderTest != scenario.ReferenceObject;
@@ -1074,17 +1096,17 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_false___When_parameter_other_is_null()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_false___When_parameter_other_is_null()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    ReturningOperationBase<bool> systemUnderTest = null;
+                    ReturningOperationBase<decimal> systemUnderTest = null;
 
                     // Act
-                    var actual = scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)systemUnderTest);
+                    var actual = scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)systemUnderTest);
 
                     // Assert
                     actual.AsTest().Must().BeFalse(because: scenario.Id);
@@ -1105,14 +1127,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_true___When_parameter_other_is_same_object()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_true___When_parameter_other_is_same_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actual = scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)scenario.ReferenceObject);
+                    var actual = scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)scenario.ReferenceObject);
 
                     // Assert
                     actual.AsTest().Must().BeTrue(because: scenario.Id);
@@ -1133,14 +1155,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatDeriveFromScenarioTypeButAreNotOfTheSameTypeAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatDeriveFromScenarioTypeButAreNotOfTheSameTypeAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeFalse(because: scenario.Id);
@@ -1161,14 +1183,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_false___When_objects_being_compared_have_different_property_values()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_false___When_objects_being_compared_have_different_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatAreNotEqualToReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatAreNotEqualToReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeFalse(because: scenario.Id);
@@ -1189,14 +1211,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_true___When_objects_being_compared_have_same_property_values()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_true___When_objects_being_compared_have_same_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatAreEqualToButNotTheSameAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatAreEqualToButNotTheSameAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeTrue(because: scenario.Id);
@@ -1217,157 +1239,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_false___When_parameter_other_is_null()
+            public static void Equals_with_SubtractOp___Should_return_false___When_parameter_other_is_null()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    MultiStatementOpBase<bool, bool> systemUnderTest = null;
-
-                    // Act
-                    var actual = scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)systemUnderTest);
-
-                    // Assert
-                    actual.AsTest().Must().BeFalse(because: scenario.Id);
-                }
-            }
-
-            [Fact]
-            [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1715:IdentifiersShouldHaveCorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords")]
-            [SuppressMessage("Microsoft.Naming", "CA1719:ParameterNamesShouldNotMatchMemberNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1722:IdentifiersShouldNotHaveIncorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
-            [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
-            [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_true___When_parameter_other_is_same_object()
-            {
-                var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
-
-                foreach (var scenario in scenarios)
-                {
-                    // Arrange, Act
-                    var actual = scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)scenario.ReferenceObject);
-
-                    // Assert
-                    actual.AsTest().Must().BeTrue(because: scenario.Id);
-                }
-            }
-
-            [Fact]
-            [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1715:IdentifiersShouldHaveCorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords")]
-            [SuppressMessage("Microsoft.Naming", "CA1719:ParameterNamesShouldNotMatchMemberNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1722:IdentifiersShouldNotHaveIncorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
-            [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
-            [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
-            {
-                var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
-
-                foreach (var scenario in scenarios)
-                {
-                    // Arrange, Act
-                    var actuals = scenario.ObjectsThatDeriveFromScenarioTypeButAreNotOfTheSameTypeAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)_)).ToList();
-
-                    // Assert
-                    actuals.AsTest().Must().Each().BeFalse(because: scenario.Id);
-                }
-            }
-
-            [Fact]
-            [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1715:IdentifiersShouldHaveCorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords")]
-            [SuppressMessage("Microsoft.Naming", "CA1719:ParameterNamesShouldNotMatchMemberNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1722:IdentifiersShouldNotHaveIncorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
-            [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
-            [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_false___When_objects_being_compared_have_different_property_values()
-            {
-                var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
-
-                foreach (var scenario in scenarios)
-                {
-                    // Arrange, Act
-                    var actuals = scenario.ObjectsThatAreNotEqualToReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)_)).ToList();
-
-                    // Assert
-                    actuals.AsTest().Must().Each().BeFalse(because: scenario.Id);
-                }
-            }
-
-            [Fact]
-            [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1715:IdentifiersShouldHaveCorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords")]
-            [SuppressMessage("Microsoft.Naming", "CA1719:ParameterNamesShouldNotMatchMemberNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1722:IdentifiersShouldNotHaveIncorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
-            [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
-            [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_true___When_objects_being_compared_have_same_property_values()
-            {
-                var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
-
-                foreach (var scenario in scenarios)
-                {
-                    // Arrange, Act
-                    var actuals = scenario.ObjectsThatAreEqualToButNotTheSameAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)_)).ToList();
-
-                    // Assert
-                    actuals.AsTest().Must().Each().BeTrue(because: scenario.Id);
-                }
-            }
-
-            [Fact]
-            [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-            [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-            [SuppressMessage("Microsoft.Naming", "CA1715:IdentifiersShouldHaveCorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords")]
-            [SuppressMessage("Microsoft.Naming", "CA1719:ParameterNamesShouldNotMatchMemberNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames")]
-            [SuppressMessage("Microsoft.Naming", "CA1722:IdentifiersShouldNotHaveIncorrectPrefix")]
-            [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
-            [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
-            [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_false___When_parameter_other_is_null()
-            {
-                var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
-
-                foreach (var scenario in scenarios)
-                {
-                    // Arrange
-                    OrElseOp systemUnderTest = null;
+                    SubtractOp systemUnderTest = null;
 
                     // Act
                     var actual = scenario.ReferenceObject.Equals(systemUnderTest);
@@ -1391,7 +1270,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_true___When_parameter_other_is_same_object()
+            public static void Equals_with_SubtractOp___Should_return_true___When_parameter_other_is_same_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
@@ -1419,7 +1298,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
+            public static void Equals_with_SubtractOp___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
@@ -1447,7 +1326,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_false___When_objects_being_compared_have_different_property_values()
+            public static void Equals_with_SubtractOp___Should_return_false___When_objects_being_compared_have_different_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
@@ -1475,7 +1354,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_true___When_objects_being_compared_have_same_property_values()
+            public static void Equals_with_SubtractOp___Should_return_true___When_objects_being_compared_have_same_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
@@ -1636,7 +1515,7 @@ namespace OBeautifulCode.CoreOperation.Test
         [SuppressMessage("Microsoft.Naming", "CA1724:TypeNamesShouldNotMatchNamespaces")]
         public static class HashTesting
         {
-            [Fact(Skip = "It's possible (and even probable after a few runs of this test) that two dummy, unequal models will have the same hash code.  The model being tested contains at least one property who's type (or a type nested within the generic type, or a property of the IModel type) is a dictionary with keys that are not comparable or an unordered collection with elements that are not comparable.  In these cases the hashing method cannot hash the elements and must resort to hashing the element count.  Two dummies could easily have the same element count for such a type.")]
+            [Fact]
             [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly")]
             [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly")]
             [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]

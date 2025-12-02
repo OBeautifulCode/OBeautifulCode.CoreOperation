@@ -34,40 +34,40 @@ namespace OBeautifulCode.CoreOperation.Test
 
     using static global::System.FormattableString;
 
-    public static partial class OrElseOpTest
+    public static partial class MultiplyOpTest
     {
-        private static readonly StringRepresentationTestScenarios<OrElseOp> StringRepresentationTestScenarios = new StringRepresentationTestScenarios<OrElseOp>()
+        private static readonly StringRepresentationTestScenarios<MultiplyOp> StringRepresentationTestScenarios = new StringRepresentationTestScenarios<MultiplyOp>()
             .AddScenario(() =>
-                new StringRepresentationTestScenario<OrElseOp>
+                new StringRepresentationTestScenario<MultiplyOp>
                 {
                     Name = "Default Code Generated Scenario",
                     SystemUnderTestExpectedStringRepresentationFunc = () =>
                     {
-                        var systemUnderTest = A.Dummy<OrElseOp>();
+                        var systemUnderTest = A.Dummy<MultiplyOp>();
 
-                        var result = new SystemUnderTestExpectedStringRepresentation<OrElseOp>
+                        var result = new SystemUnderTestExpectedStringRepresentation<MultiplyOp>
                         {
                             SystemUnderTest = systemUnderTest,
-                            ExpectedStringRepresentation = Invariant($"OBeautifulCode.CoreOperation.OrElseOp: Statements = {systemUnderTest.Statements?.ToString() ?? "<null>"}."),
+                            ExpectedStringRepresentation = Invariant($"OBeautifulCode.CoreOperation.MultiplyOp: Statements = {systemUnderTest.Statements?.ToString() ?? "<null>"}."),
                         };
 
                         return result;
                     },
                 });
 
-        private static readonly DeepCloneWithTestScenarios<OrElseOp> DeepCloneWithTestScenarios = new DeepCloneWithTestScenarios<OrElseOp>()
+        private static readonly DeepCloneWithTestScenarios<MultiplyOp> DeepCloneWithTestScenarios = new DeepCloneWithTestScenarios<MultiplyOp>()
             .AddScenario(() =>
-                new DeepCloneWithTestScenario<OrElseOp>
+                new DeepCloneWithTestScenario<MultiplyOp>
                 {
                     Name = "DeepCloneWithStatements should deep clone object and replace Statements with the provided statements",
                     WithPropertyName = "Statements",
                     SystemUnderTestDeepCloneWithValueFunc = () =>
                     {
-                        var systemUnderTest = A.Dummy<OrElseOp>();
+                        var systemUnderTest = A.Dummy<MultiplyOp>();
 
-                        var referenceObject = A.Dummy<OrElseOp>().ThatIs(_ => !systemUnderTest.Statements.IsEqualTo(_.Statements));
+                        var referenceObject = A.Dummy<MultiplyOp>().ThatIs(_ => !systemUnderTest.Statements.IsEqualTo(_.Statements));
 
-                        var result = new SystemUnderTestDeepCloneWithValue<OrElseOp>
+                        var result = new SystemUnderTestDeepCloneWithValue<MultiplyOp>
                         {
                             SystemUnderTest = systemUnderTest,
                             DeepCloneWithValue = referenceObject.Statements,
@@ -77,26 +77,26 @@ namespace OBeautifulCode.CoreOperation.Test
                     },
                 });
 
-        private static readonly OrElseOp ReferenceObjectForEquatableTestScenarios = A.Dummy<OrElseOp>();
+        private static readonly MultiplyOp ReferenceObjectForEquatableTestScenarios = A.Dummy<MultiplyOp>();
 
-        private static readonly EquatableTestScenarios<OrElseOp> EquatableTestScenarios = new EquatableTestScenarios<OrElseOp>()
+        private static readonly EquatableTestScenarios<MultiplyOp> EquatableTestScenarios = new EquatableTestScenarios<MultiplyOp>()
             .AddScenario(() =>
-                new EquatableTestScenario<OrElseOp>
+                new EquatableTestScenario<MultiplyOp>
                 {
                     Name = "Default Code Generated Scenario",
                     ReferenceObject = ReferenceObjectForEquatableTestScenarios,
-                    ObjectsThatAreEqualToButNotTheSameAsReferenceObject = new OrElseOp[]
+                    ObjectsThatAreEqualToButNotTheSameAsReferenceObject = new MultiplyOp[]
                     {
-                        new OrElseOp
+                        new MultiplyOp
                             {
                                 Statements = ReferenceObjectForEquatableTestScenarios.Statements,
                             },
                     },
-                    ObjectsThatAreNotEqualToReferenceObject = new OrElseOp[]
+                    ObjectsThatAreNotEqualToReferenceObject = new MultiplyOp[]
                     {
-                        new OrElseOp
+                        new MultiplyOp
                             {
-                                Statements = A.Dummy<OrElseOp>().Whose(_ => !_.Statements.IsEqualTo(ReferenceObjectForEquatableTestScenarios.Statements)).Statements,
+                                Statements = A.Dummy<MultiplyOp>().Whose(_ => !_.Statements.IsEqualTo(ReferenceObjectForEquatableTestScenarios.Statements)).Statements,
                             },
                     },
                     ObjectsThatAreNotOfTheSameTypeAsReferenceObject = new object[]
@@ -113,11 +113,11 @@ namespace OBeautifulCode.CoreOperation.Test
                         A.Dummy<GetNumberOfSignificantDigitsOp>(),
                         A.Dummy<IfThenElseOp<Version>>(),
                         A.Dummy<IsEqualToOp<Version>>(),
-                        A.Dummy<MultiplyOp>(),
                         A.Dummy<NotOp>(),
                         A.Dummy<NullMultiStatementOp<Version, Version>>(),
                         A.Dummy<NullSingleStatementOp<Version, Version>>(),
                         A.Dummy<NullTwoStatementOp<Version, Version>>(),
+                        A.Dummy<OrElseOp>(),
                         A.Dummy<SubtractOp>(),
                         A.Dummy<SumOp>(),
                         A.Dummy<ThrowOpExecutionAbortedExceptionOp>(),
@@ -129,22 +129,22 @@ namespace OBeautifulCode.CoreOperation.Test
                     },
                 });
 
-        private static readonly ValidModelTestScenarios<OrElseOp> ValidModelTestScenarios = new ValidModelTestScenarios<OrElseOp>()
+        private static readonly ValidModelTestScenarios<MultiplyOp> ValidModelTestScenarios = new ValidModelTestScenarios<MultiplyOp>()
             .AddScenario(() =>
-                new ValidModelTestScenario<OrElseOp>
+                new ValidModelTestScenario<MultiplyOp>
                 {
-                    Name = "a dummy OrElseOp should be valid",
-                    SystemUnderTest = A.Dummy<OrElseOp>(),
+                    Name = "a dummy MultiplyOp should be valid",
+                    SystemUnderTest = A.Dummy<MultiplyOp>(),
                 });
 
-        private static readonly SelfValidationTestScenarios<OrElseOp> SelfValidationTestScenarios = new SelfValidationTestScenarios<OrElseOp>()
+        private static readonly SelfValidationTestScenarios<MultiplyOp> SelfValidationTestScenarios = new SelfValidationTestScenarios<MultiplyOp>()
             .AddScenario(() =>
                 {
-                    var systemUnderTest = A.Dummy<OrElseOp>();
+                    var systemUnderTest = A.Dummy<MultiplyOp>();
 
                     systemUnderTest.Statements = null;
 
-                    var result = new SelfValidationTestScenario<OrElseOp>
+                    var result = new SelfValidationTestScenario<MultiplyOp>
                     {
                         Name = "GetSelfValidationFailures() should return a failure when property 'Statements' is null scenario",
                         SystemUnderTest = systemUnderTest,
@@ -157,11 +157,11 @@ namespace OBeautifulCode.CoreOperation.Test
                 })
             .AddScenario(() =>
                 {
-                    var systemUnderTest = A.Dummy<OrElseOp>();
+                    var systemUnderTest = A.Dummy<MultiplyOp>();
 
-                    systemUnderTest.Statements = new List<IReturningOperation<bool>>();
+                    systemUnderTest.Statements = new List<IReturningOperation<decimal>>();
 
-                    var result = new SelfValidationTestScenario<OrElseOp>
+                    var result = new SelfValidationTestScenario<MultiplyOp>
                     {
                         Name = "GetSelfValidationFailures() should return a failure when property 'Statements' is an empty enumerable scenario",
                         SystemUnderTest = systemUnderTest,
@@ -174,11 +174,11 @@ namespace OBeautifulCode.CoreOperation.Test
                 })
             .AddScenario(() =>
                 {
-                    var systemUnderTest = A.Dummy<OrElseOp>();
+                    var systemUnderTest = A.Dummy<MultiplyOp>();
 
-                    systemUnderTest.Statements = new IReturningOperation<bool>[0].Concat(systemUnderTest.Statements).Concat(new IReturningOperation<bool>[] { null }).Concat(systemUnderTest.Statements).ToList();
+                    systemUnderTest.Statements = new IReturningOperation<decimal>[0].Concat(systemUnderTest.Statements).Concat(new IReturningOperation<decimal>[] { null }).Concat(systemUnderTest.Statements).ToList();
 
-                    var result = new SelfValidationTestScenario<OrElseOp>
+                    var result = new SelfValidationTestScenario<MultiplyOp>
                     {
                         Name = "GetSelfValidationFailures() should return a failure when property 'Statements' contains a null element scenario",
                         SystemUnderTest = systemUnderTest,
@@ -208,12 +208,12 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void OrElseOp___Should_implement_IModel_of_OrElseOp___When_reflecting()
+            public static void MultiplyOp___Should_implement_IModel_of_MultiplyOp___When_reflecting()
             {
                 // Arrange
-                var type = typeof(OrElseOp);
+                var type = typeof(MultiplyOp);
 
-                var expectedModelMethods = typeof(IModel<OrElseOp>).GetInterfaceDeclaredAndImplementedMethods();
+                var expectedModelMethods = typeof(IModel<MultiplyOp>).GetInterfaceDeclaredAndImplementedMethods();
 
                 var expectedModelMethodHashes = expectedModelMethods.Select(_ => _.GetSignatureHash());
 
@@ -223,7 +223,7 @@ namespace OBeautifulCode.CoreOperation.Test
                 var actualModelMethodHashes = actualModelMethods.Select(_ => _.GetSignatureHash());
 
                 // Assert
-                actualInterfaces.AsTest().Must().ContainElement(typeof(IModel<OrElseOp>));
+                actualInterfaces.AsTest().Must().ContainElement(typeof(IModel<MultiplyOp>));
                 expectedModelMethodHashes.Except(actualModelMethodHashes).AsTest().Must().BeEmptyEnumerable();
             }
 
@@ -241,10 +241,10 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void OrElseOp___Should_be_attributed_with_Serializable____When_reflecting()
+            public static void MultiplyOp___Should_be_attributed_with_Serializable____When_reflecting()
             {
                 // Arrange
-                var type = typeof(OrElseOp);
+                var type = typeof(MultiplyOp);
 
                 // Act
                 var actualAttributes = type.GetCustomAttributes(typeof(SerializableAttribute), false);
@@ -308,10 +308,10 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Clone___Should_clone_object___When_called()
             {
                 // Arrange
-                var systemUnderTest = A.Dummy<OrElseOp>();
+                var systemUnderTest = A.Dummy<MultiplyOp>();
 
                 // Act
-                var actual = (OrElseOp)systemUnderTest.Clone();
+                var actual = (MultiplyOp)systemUnderTest.Clone();
 
                 // Assert
                 actual.AsTest().Must().BeEqualTo(systemUnderTest);
@@ -335,7 +335,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void DeepClone___Should_deep_clone_object___When_called()
             {
                 // Arrange
-                var systemUnderTest = A.Dummy<OrElseOp>();
+                var systemUnderTest = A.Dummy<MultiplyOp>();
 
                 // Act
                 var actual = systemUnderTest.DeepClone();
@@ -386,12 +386,12 @@ namespace OBeautifulCode.CoreOperation.Test
                     }
 
                     // Act
-                    var actual = (OrElseOp)scenario.DeepCloneWithMethod.Invoke(scenario.SystemUnderTest, new[] { scenario.WithValue });
+                    var actual = (MultiplyOp)scenario.DeepCloneWithMethod.Invoke(scenario.SystemUnderTest, new[] { scenario.WithValue });
 
                     // Assert
                     foreach (var propertyName in propertyNames)
                     {
-                        var propertyInfo = typeof(OrElseOp).GetPropertyFiltered(propertyName, MemberRelationships.DeclaredOrInherited, MemberOwners.Instance, MemberAccessModifiers.Public);
+                        var propertyInfo = typeof(MultiplyOp).GetPropertyFiltered(propertyName, MemberRelationships.DeclaredOrInherited, MemberOwners.Instance, MemberAccessModifiers.Public);
 
                         var actualPropertyValue = propertyInfo.GetValue(actual);
 
@@ -453,7 +453,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Deserialize___Should_roundtrip_object___When_serializing_to_and_deserializing_from_string_using_ObcBsonSerializer()
             {
                 // Arrange
-                var expected = A.Dummy<OrElseOp>();
+                var expected = A.Dummy<MultiplyOp>();
 
                 var serializationConfigurationType = SerializationConfigurationTypes.BsonSerializationConfigurationType.ConcreteSerializationConfigurationDerivativeType;
 
@@ -482,7 +482,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Deserialize___Should_roundtrip_object___When_serializing_to_and_deserializing_from_bytes_using_ObcBsonSerializer()
             {
                 // Arrange
-                var expected = A.Dummy<OrElseOp>();
+                var expected = A.Dummy<MultiplyOp>();
 
                 var serializationConfigurationType = SerializationConfigurationTypes.BsonSerializationConfigurationType.ConcreteSerializationConfigurationDerivativeType;
 
@@ -511,7 +511,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Deserialize___Should_roundtrip_object___When_serializing_to_and_deserializing_from_string_using_ObcJsonSerializer()
             {
                 // Arrange
-                var expected = A.Dummy<OrElseOp>();
+                var expected = A.Dummy<MultiplyOp>();
 
                 var serializationConfigurationType = SerializationConfigurationTypes.JsonSerializationConfigurationType.ConcreteSerializationConfigurationDerivativeType;
 
@@ -540,7 +540,7 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void Deserialize___Should_roundtrip_object___When_serializing_to_and_deserializing_from_bytes_using_ObcJsonSerializer()
             {
                 // Arrange
-                var expected = A.Dummy<OrElseOp>();
+                var expected = A.Dummy<MultiplyOp>();
 
                 var serializationConfigurationType = SerializationConfigurationTypes.JsonSerializationConfigurationType.ConcreteSerializationConfigurationDerivativeType;
 
@@ -574,8 +574,8 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void EqualsOperator___Should_return_true___When_both_sides_of_operator_are_null()
             {
                 // Arrange
-                OrElseOp systemUnderTest1 = null;
-                OrElseOp systemUnderTest2 = null;
+                MultiplyOp systemUnderTest1 = null;
+                MultiplyOp systemUnderTest2 = null;
 
                 // Act
                 var actual = systemUnderTest1 == systemUnderTest2;
@@ -605,7 +605,7 @@ namespace OBeautifulCode.CoreOperation.Test
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    OrElseOp systemUnderTest = null;
+                    MultiplyOp systemUnderTest = null;
 
                     // Act
                     var actual1 = systemUnderTest == scenario.ReferenceObject;
@@ -754,8 +754,8 @@ namespace OBeautifulCode.CoreOperation.Test
             public static void NotEqualsOperator___Should_return_false___When_both_sides_of_operator_are_null()
             {
                 // Arrange
-                OrElseOp systemUnderTest1 = null;
-                OrElseOp systemUnderTest2 = null;
+                MultiplyOp systemUnderTest1 = null;
+                MultiplyOp systemUnderTest2 = null;
 
                 // Act
                 var actual = systemUnderTest1 != systemUnderTest2;
@@ -785,7 +785,7 @@ namespace OBeautifulCode.CoreOperation.Test
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    OrElseOp systemUnderTest = null;
+                    MultiplyOp systemUnderTest = null;
 
                     // Act
                     var actual1 = systemUnderTest != scenario.ReferenceObject;
@@ -1074,17 +1074,17 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_false___When_parameter_other_is_null()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_false___When_parameter_other_is_null()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    ReturningOperationBase<bool> systemUnderTest = null;
+                    ReturningOperationBase<decimal> systemUnderTest = null;
 
                     // Act
-                    var actual = scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)systemUnderTest);
+                    var actual = scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)systemUnderTest);
 
                     // Assert
                     actual.AsTest().Must().BeFalse(because: scenario.Id);
@@ -1105,14 +1105,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_true___When_parameter_other_is_same_object()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_true___When_parameter_other_is_same_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actual = scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)scenario.ReferenceObject);
+                    var actual = scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)scenario.ReferenceObject);
 
                     // Assert
                     actual.AsTest().Must().BeTrue(because: scenario.Id);
@@ -1133,14 +1133,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatDeriveFromScenarioTypeButAreNotOfTheSameTypeAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatDeriveFromScenarioTypeButAreNotOfTheSameTypeAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeFalse(because: scenario.Id);
@@ -1161,14 +1161,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_false___When_objects_being_compared_have_different_property_values()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_false___When_objects_being_compared_have_different_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatAreNotEqualToReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatAreNotEqualToReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeFalse(because: scenario.Id);
@@ -1189,14 +1189,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_ReturningOperationBase_of_bool___Should_return_true___When_objects_being_compared_have_same_property_values()
+            public static void Equals_with_ReturningOperationBase_of_decimal___Should_return_true___When_objects_being_compared_have_same_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatAreEqualToButNotTheSameAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatAreEqualToButNotTheSameAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((ReturningOperationBase<decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeTrue(because: scenario.Id);
@@ -1217,17 +1217,17 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_false___When_parameter_other_is_null()
+            public static void Equals_with_MultiStatementOpBase_of_decimal_decimal___Should_return_false___When_parameter_other_is_null()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    MultiStatementOpBase<bool, bool> systemUnderTest = null;
+                    MultiStatementOpBase<decimal, decimal> systemUnderTest = null;
 
                     // Act
-                    var actual = scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)systemUnderTest);
+                    var actual = scenario.ReferenceObject.Equals((MultiStatementOpBase<decimal, decimal>)systemUnderTest);
 
                     // Assert
                     actual.AsTest().Must().BeFalse(because: scenario.Id);
@@ -1248,14 +1248,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_true___When_parameter_other_is_same_object()
+            public static void Equals_with_MultiStatementOpBase_of_decimal_decimal___Should_return_true___When_parameter_other_is_same_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actual = scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)scenario.ReferenceObject);
+                    var actual = scenario.ReferenceObject.Equals((MultiStatementOpBase<decimal, decimal>)scenario.ReferenceObject);
 
                     // Assert
                     actual.AsTest().Must().BeTrue(because: scenario.Id);
@@ -1276,14 +1276,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
+            public static void Equals_with_MultiStatementOpBase_of_decimal_decimal___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatDeriveFromScenarioTypeButAreNotOfTheSameTypeAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatDeriveFromScenarioTypeButAreNotOfTheSameTypeAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<decimal, decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeFalse(because: scenario.Id);
@@ -1304,14 +1304,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_false___When_objects_being_compared_have_different_property_values()
+            public static void Equals_with_MultiStatementOpBase_of_decimal_decimal___Should_return_false___When_objects_being_compared_have_different_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatAreNotEqualToReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatAreNotEqualToReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<decimal, decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeFalse(because: scenario.Id);
@@ -1332,14 +1332,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_MultiStatementOpBase_of_bool_bool___Should_return_true___When_objects_being_compared_have_same_property_values()
+            public static void Equals_with_MultiStatementOpBase_of_decimal_decimal___Should_return_true___When_objects_being_compared_have_same_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange, Act
-                    var actuals = scenario.ObjectsThatAreEqualToButNotTheSameAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<bool, bool>)_)).ToList();
+                    var actuals = scenario.ObjectsThatAreEqualToButNotTheSameAsReferenceObject.Select(_ => scenario.ReferenceObject.Equals((MultiStatementOpBase<decimal, decimal>)_)).ToList();
 
                     // Assert
                     actuals.AsTest().Must().Each().BeTrue(because: scenario.Id);
@@ -1360,14 +1360,14 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_false___When_parameter_other_is_null()
+            public static void Equals_with_MultiplyOp___Should_return_false___When_parameter_other_is_null()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
                 foreach (var scenario in scenarios)
                 {
                     // Arrange
-                    OrElseOp systemUnderTest = null;
+                    MultiplyOp systemUnderTest = null;
 
                     // Act
                     var actual = scenario.ReferenceObject.Equals(systemUnderTest);
@@ -1391,7 +1391,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_true___When_parameter_other_is_same_object()
+            public static void Equals_with_MultiplyOp___Should_return_true___When_parameter_other_is_same_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
@@ -1419,7 +1419,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
+            public static void Equals_with_MultiplyOp___Should_return_false___When_parameter_other_is_derived_from_the_same_type_but_is_not_of_the_same_type_as_this_object()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
@@ -1447,7 +1447,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_false___When_objects_being_compared_have_different_property_values()
+            public static void Equals_with_MultiplyOp___Should_return_false___When_objects_being_compared_have_different_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
@@ -1475,7 +1475,7 @@ namespace OBeautifulCode.CoreOperation.Test
             [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
             [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms")]
             [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly")]
-            public static void Equals_with_OrElseOp___Should_return_true___When_objects_being_compared_have_same_property_values()
+            public static void Equals_with_MultiplyOp___Should_return_true___When_objects_being_compared_have_same_property_values()
             {
                 var scenarios = EquatableTestScenarios.ValidateAndPrepareForTesting();
 
